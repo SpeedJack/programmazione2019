@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="EventoDiNavigazione">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="nomeApplicazione" type="xs:string" />
+				<xs:element name="ipClient" type="xs:string" />
+				<xs:element name="data">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="formato" type="xs:string" use="required" />
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ora">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="formato" type="xs:string" use="required" />
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="nomeEvento" type="xs:string" />
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

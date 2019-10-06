@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:element name="ParametriDiConfigurazione">
+		<xs:complexType>
+			<xs:all>
+				<xs:element name="nomeIstituto" type="xs:string" />
+				<xs:element name="Studente">
+					<xs:complexType>
+						<xs:all>
+							<xs:element name="nome" type="xs:string" />
+							<xs:element name="matricola" type="xs:integer" />
+						</xs:all>
+						<xs:attribute name="votoTesi" use="required">
+							<xs:simpleType>
+								<xs:restriction base="xs:integer">
+									<xs:minInclusive value="1" />
+									<xs:maxInclusive value="3" />
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="corsoDiLaurea" fixed="">
+					<xs:complexType>
+						<xs:simpleContent>
+							<xs:extension base="xs:string">
+								<xs:attribute name="nome" type="xs:string" use="required" />
+								<xs:attribute name="valoreLode" type="xs:integer" default="33" />
+								<xs:attribute name="creditiTotali" type="xs:integer" default="180" />
+							</xs:extension>
+						</xs:simpleContent>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ParametriDiConnessione">
+					<xs:complexType>
+						<xs:all>
+							<xs:element name="ipClient" type="xs:string" />
+							<xs:element name="ipServer" type="xs:string" />
+							<xs:element name="portaServer">
+								<xs:simpleType>
+									<xs:restriction base="xs:integer">
+										<xs:minInclusive value="0" />
+										<xs:maxInclusive value="65535" />
+									</xs:restriction>
+								</xs:simpleType>
+							</xs:element>
+						</xs:all>
+					</xs:complexType>
+				</xs:element>
+			</xs:all>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

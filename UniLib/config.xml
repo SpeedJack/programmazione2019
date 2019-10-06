@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ParametriDiConfigurazione>
+	<nomeIstituto>Università Di Pisa</nomeIstituto>
+	<Studente votoTesi="3">
+		<nome>Niccolò Scatena</nome>
+		<matricola>518402</matricola>
+	</Studente>
+	<corsoDiLaurea nome="Ingegneria Informatica" valoreLode="33" creditiTotali="180" />
+	<ParametriDiConnessione>
+		<ipClient>127.0.0.1</ipClient>
+		<ipServer>127.0.0.1</ipServer>
+		<portaServer>8888</portaServer>
+	</ParametriDiConnessione>
+</ParametriDiConfigurazione>
