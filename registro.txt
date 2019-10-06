@@ -1,0 +1,335 @@
+SESSIONE 1 (11/08)
+ANALISI
+INIZIO: 10:16:37
+FINE: 12:08:30
+DURATA: 1:51:53
+DESCRIZIONE: UniLib è un libretto universitario elettronico multiutente con
+statistiche sull'andamento dello studente. Creato mockup diviso in 3 aree
+(statistiche, elenco esami, modifica); aggiunte le textbox e le rispettive
+label nell'area modifica; aggiunto il selettore della data di verbalizzazione
+e i bottoni AGGIUNGI e ELIMINA; aggiunte le label con informazioni su istituto
+e studente e la tabella degli esami nell'area centrale; aggiunto il pannello
+con le statistiche; aggiunto grafico a torta.
+
+###############################################################################
+
+SESSIONE 2 (11/08)
+ANALISI
+INIZIO: 13:15:47
+FINE: 14:33:02
+DURATA: 1:17:15
+DESCRIZIONE: Aggiustato lo stile di bottoni, label delle statistiche e grafico
+a torta; aggiunti nomi delle aree. Spostato il bottone ELIMINA nell'Area
+Libretto e aggiunto il bottone ANNULLA nell'Area Modifica. Aggiunto il caso
+d'uso sull'inserimento di nuovi esami. Aggiunto il caso d'uso sulla modifica ed
+eliminazione di un esame. Aggiunta la lista dei parametri di config. Aggiunta
+la lista di ciò che deve essere salvato nell'archivio e nella cache locale.
+Aggiunto elenco delle info da loggare.
+
+###############################################################################
+
+SESSIONE 3 (11/08)
+ANALISI
+INIZIO: 17:40:14
+FINE: 18:07:29
+DURATA: 0:27:15
+DESCRIZIONE: Aggiunta label con il nome del corso di laurea. Aggiunta checkbox
+per la lode. Aggiunta gestione della checkbox della lode nei casi d'uso e
+salvataggio della lode nell'archivio. Aggiunti campi "valore lode", "nome corso
+di laurea" e "numero totale esami" nel file di configurazione. Semplificato il
+testo dei casi d'uso esplicitando la lista dei valori che l'applicazione mostra
+per ogni esame nell'Area Libretto. Controllo ortografico del documento di
+analisi.
+
+###############################################################################
+
+SESSIONE 4 (13/08)
+ANALISI
+INIZIO: 15:23:03
+FINE: 16:11:27
+DURATA: 0:48:24
+DESCRIZIONE: Rimosso dai casi d'uso frasi che non riguardano l'interazione con
+l'I/O. Rimossa la (dis)abilitazione e il cambio di testo dei bottoni. Aggiunto
+"voto tesi" nella config. Rimossa la checkbox "Lode" e aggiunta la checkbox
+"ING-INF/05". Sostituito il grafico a torta con un grafico a barre. Aggiunta la
+previsione del voto di laurea (al posto della base di laurea). Rimosso il campo
+"Lode" nell'archivio e aggiunto il flag INF. Rimosso l'evento "AGGIUNGI" dal
+file di log.
+
+###############################################################################
+
+SESSIONE 5 (15/08)
+PROGETTO, PROTOTIPAZIONE
+INIZIO: 16:37:34
+FINE: 20:26:11
+DURATA: 3:48:37
+DESCRIZIONE: Aggiunte le classi UniLib, AreaLibretto, AreaStatistiche,
+AreaModifica. Riflessioni su come le varie aree devono comunicare tra loro.
+Difficoltà nel capire di quali campi hanno bisogno le classi e quali
+metodi/campi devono essere statici. Presi dal web esempi sull`utilizzo di
+BorderPane. Trovato sul web prototipo che mostra sempre il selettore della data
+e esempi su GridPane. Creato prototipo per BarChart. Create le classi Esami,
+Statistiche e ArchivioEsami.
+
+###############################################################################
+
+SESSIONE 6 (16/08)
+PROGETTO
+INIZIO: 17:21:53
+FINE: 19:17:16
+DURATA: 1:55:23
+DESCRIZIONE: Aggiornate nel diagramma le classi UniLib, AreaLibretto,
+AreaModifica, AreaStatistiche con le necessità venute fuori dai prototipi.
+Aggiunte le classi GraficoVoti e TabellaEsami. Relazionate tutte le classi del
+frontend. Riflessioni sulle responsabilità delle classi middleware (in
+particolare, delle classi Statistiche e Esami e nelle loro relazioni con
+ArchivioEsami). Difficoltà nel capire chi deve fornire le info sugli esami alla
+classe Statistiche. Ipotizzata l'aggiunta di una classe Studente.
+
+###############################################################################
+
+SESSIONE 7 (17/08)
+PROGETTO
+INIZIO: 14:35:46
+FINE: 16:31:36
+DURATA: 1:55:50
+DESCRIZIONE: Riflessioni sulle relazioni tra Statistiche, Esami, ArchivioEsami.
+Aggiunta la classe Studente (che salva/preleva esami attraverso ArchivioEsami e
+inizializza le Statistiche) e il relativo campo nella classe UniLib. Aggiunti
+alla classe Statistiche i metodi per ottenere info sugli esami. Aggiunti a
+ArchivioEsami i metodi per la conversione tra LocalDate e java.sql.Date e resa
+la classe singleton. Relazionate tutte le classi create finora. Aggiunta la
+classe ParametriDiConfigurazione.
+
+###############################################################################
+
+SESSIONE 8 (17/08)
+PROGETTO
+INIZIO: 18:20:38
+FINE: 19:21:55
+DURATA: 1:01:17
+DESCRIZIONE: Aggiunte le classi CorsoDiLaurea e ParametriDiConnessione.
+Riflessione su quali classi devono accedere alla configurazione e aggiunte le
+relazioni con ParametriDiConfigurazione. Difficoltà nel capire se dal file di
+configurazione deve essere prelevata anche una istanza della classe Studente.
+Spostati i metodi di aggiunta/modifica/eliminazione di esami dalla classe Esame
+alla classe Studente e ragionato su come questa deve elaborare la modifica di
+un esame.
+
+###############################################################################
+
+SESSIONE 9 (18/08)
+PROGETTO, DOCUMENTAZIONE
+INIZIO: 17:02:03
+FINE: 19:18:00
+DURATA: 2:15:57
+DESCRIZIONE: Scritte le responsabilità per tutte le classi aggiunte finora al
+diagramma. Aggiunti a Statistiche metodi ausiliari per il calcolo della media e
+del VC. Aggiunto a ParametriDiConfigurazione il metodo per la validazione XML.
+Aggiunta classe InputCache con i campi da salvare su cache e i metodi statici
+per salvare e prelevare da file. Aggiunte classi EventoDiNavigazione e
+ServerLogger. Sistemate le relazioni delle classi Studente, Esame,
+ArchivioEsami, Statistiche e InputCache.
+
+###############################################################################
+
+SESSIONE 10 (02/09)
+PROGETTO, DOCUMENTAZIONE
+INIZIO: 16:19:36
+FINE: 17:58:00
+DURATA: 1:38:24
+DESCRIZIONE: Scritte le responsabilità di InputCache, EventoDiNavigazione,
+ServerLogger. Sistemata la disposizione di Statistiche, Esame, Studente e
+ArchivioEsame in modo che le linee delle dipendenze non si sovrappongano
+troppo, aggiunti gli import necessari per tutte le classi. Aggiunte le
+relazioni di ereditarietà di GraficoVoti (BarChart), TabellaEsami (TableView),
+AreaModifica (GridPane), AreaStatistiche e AreaLibretto (VBox). Controllo
+ortografico del documento di progetto. (Offline: guasto internet)
+SUBMIT FINE: 19:48:32
+
+###############################################################################
+
+SESSIONE 11 (04/09)
+SVILUPPO
+INIZIO: 15:23:07
+FINE: 19:29:05
+DURATA: 4:05:58
+DESCRIZIONE: Creata la classe UniLib. Create le classi del frontend (Aree,
+GraficoVoti e TabellaEsami). Riscontrate difficoltà nel disporre gli elementi
+(in particolare in AreaModifica e AreaStatistiche). Utilizzata la classe
+TextFlow per l'area Statistiche invece che delle Label. Fatti alcuni test con
+dati di prova in TabellaEsami e GraficoVoti. Creata la classe bean Esame.
+Sviluppate parzialmente le classi ArchivioEsami e Studente (inseriti tutti i
+metodi previsti dal progetto ma implementati in parte).
+
+###############################################################################
+
+SESSIONE 12 (05/09)
+SVILUPPO
+INIZIO: 15:30:21
+FINE: 20:06:00
+DURATA: 4:35:39
+DESCRIZIONE: Continuo sistemazione della disposizione degli elementi grafici
+nelle aree (sopratutto in AreaModifica con GridPane). Sistemata la
+visualizzazione di TabellaEsami. Difficoltà nell'impedire che TableView
+selezioni automaticamente la prima riga della tabella all'avvio. Aggiunto
+ScrollPane in AreaStatistiche per il grafico dei voti. Sistemata la grafica di
+tutti i bottoni e il padding degli elementi. Completata la classe Studente (per
+il momento richiama ancora metodi parzialmente implementati).
+SUBMIT FINE: 20:38:39
+
+###############################################################################
+
+SESSIONE 13 (06/09)
+SVILUPPO, DOCUMENTAZIONE
+INIZIO: 15:48:20
+FINE: 18:30:18
+DURATA: 2:41:58
+DESCRIZIONE: Sviluppati in ArchivioEsami i metodi per ottenere, modificare,
+eliminare record. Difficoltà nello scrivere la query che ottiene per ogni esame
+la media dei voti. Creata la classe Statistiche e implementati tutti i metodi
+di calcolo. Aggiunto alla classe Esame il metodo per ottenere la parte numerica
+del voto. Creato il database MySQL e inseriti alcuni record di prova.
+Documentate con commenti al codice alcune scelte e hacks nelle classi frontend
+(UniLib, Aree) e ArchivioEsami.
+
+
+###############################################################################
+
+SESSIONE 14 (07/09)
+SVILUPPO
+INIZIO: 16:17:43
+FINE: 19:13:15
+DURATA: 2:55:32
+DESCRIZIONE: Create le classi ParametriDiConfigurazione, CorsoDiLaurea,
+ParametriDiConnessione. Creato il file di config XML e suo XSD. Riscontrate
+alcune difficoltà nello scrivere il file XSD: come definire restrizioni dei
+valori sugli attributi (votoTesi da 1 a 3) e creare elementi che hanno
+attributi ma non contenuto (corsoDiLaurea). Sviluppati i metodi per il
+caricamento e la validazione del file di config: difficoltà nell'utilizzare i
+metodi XStream.alias* per rimepire correttamente le classi di config.
+
+###############################################################################
+
+SESSIONE 15 (08/09)
+SVILUPPO
+INIZIO: 14:51:53
+FINE: 16:54:54
+DURATA: 2:03:01
+DESCRIZIONE: Sviluppata la classe InputCache e i metodi per (de)serializzare.
+Aggiunti in UniLib i metodi di coordinamento tra le varie aree quando vengono
+premuti i tasti dall'utente e implementati i metodi di salvataggio,
+eliminazione, annullamento. Semplificato in AreaModifica il codice che
+impedisce a TabellaEsami di selezionare il primo esame all'avvio. Aggiunto a
+UniLib il codice che usa InputCache per caricare/salvare la cache input e in
+AreaModifica il metodo per ottenere l'input come istanza Esame.
+
+###############################################################################
+
+SESSIONE 16 (09/09)
+SVILUPPO
+INIZIO: 16:49:03
+FINE: 20:02:54
+DURATA: 3:13:51
+DESCRIZIONE: Aggiunta la classe EventoDiNavigazione e metodi per
+(de)serializzare. Aggiunta la classe DataOraEvento per rappresentare una data o
+un'ora di un EventoDiNavigazione. Difficoltà nel far serializzare a XStream
+EventoDiNavigazione nel modo voluto. Aggiunta la classe DataOraEventoConverter
+per sistemare il marshalling di DataOraEvento in XML. Sviluppato XSD per la
+validazione e aggiunto il metodo per validare a EventoDiNavigazione. Aggiunti
+i metodi per l'invio e la ricezione degli eventi.
+
+###############################################################################
+
+SESSIONE 17 (11/09)
+SVILUPPO, COLLAUDO, DOCUMENTAZIONE
+INIZIO: 14:36:07
+FINE: 15:56:49
+DURATA: 1:20:42
+DESCRIZIONE: Separata la classe EventoDiNavigazione in due classi (una per il
+progetto UniLib, l'altra per il progetto ServerLogger). Sviluppata la classe
+ServerLogger e aggiunto il salvataggio su file di log incrementale. Test
+funzionale dell'app seguendo i casi d'uso dell'analisi. Risolto un bug nella
+classe Statistiche che non calcolava correttamente la media dopo l'eliminazione
+di un esame. Aggiunti commenti al codice per EventoDiNavigazione, UniLib e
+AreaLibretto. Riorganizzato e ripulito il codice.
+
+###############################################################################
+
+SESSIONE 18 (11/09)
+COLLAUDO, DOCUMENTAZIONE
+INIZIO: 18:04:48
+FINE: 19:54:18
+DURATA: 1:49:30
+DESCRIZIONE: Svolti vari test funzionali con dati di prova e modifiche alla
+configurazione. Stesura del documento di collaudo con casi d'uso (aggiunta,
+modifica e eliminazione di esame), descrizione dei campi di AreaStatistiche e
+loro calcolo, descrizione dei parametri di configurazione XML e capitoli sui
+dati salvati in Archivio e i dati inviati al server di log remoto. Svolto test
+funzionale finale seguendo il documento di collaudo. Aggiunti al database MySQL
+vari record di esempio più realistisci.
+
+###############################################################################
+
+SESSIONE 19 (12/09)
+COLLAUDO, DOCUMENTAZIONE
+INIZIO: 17:43:33
+FINE: 18:34:41
+DURATA: 0:51:08
+DESCRIZIONE: Aggiunti screenshot al documento di collaudo (screenshot
+dell'interfaccia grafica all'avvio, con esame selezionato e con campi di
+AreaModifica compilati; del database; dell'output di ServerLogger e file di
+log; del file di config). Aggiunta descrizione dello scrolling del GraficoVoti
+e dei campi degli esami. Controllo ortografico e sistemazione
+dell'impaginazione e della formattazione del documento di collaudo. Rese più
+chiare alcune descrizioni (Statistiche e Modifica esame).
+
+###############################################################################
+
+SESSIONE 20 (13/09)
+ANALISI, PROGETTO
+INIZIO: 15:32:40
+FINE: 16:43:45
+DURATA: 1:11:05
+DESCRIZIONE: Nuovo ciclo: aggiunta autocompletamento info esame e sistemazione
+diagramma progetto. Analisi: aggiunto "ANNULLA" in file di log. Aggiunto nel
+caso d'uso l'autocompletamento delle info sull'esame quando l'utente mette il
+codice. Progetto: aggiunti a ArchivioEsami, Esame e AreaModifica i metodi per
+la funzione di autocompletamento. Modificati i metodi che consentono la
+coordinazione tra le varie aree seguendo l'implementazione della fase sviluppo.
+Ridisposizione elementi nel diagramma.
+
+###############################################################################
+
+SESSIONE 21 (13/09)
+PROGETTO, DOCUMENTAZIONE
+INIZIO: 18:18:14
+FINE: 20:05:13
+DURATA: 1:46:59
+DESCRIZIONE: Sostituite le Label di AreaStatistiche con TextFlow. Aggiunte le
+classi DataOraEvento, DataOraEventoConverter e divisa la classe
+EventoDiNavigazione in due classi. Aggiunti alle classi gli altri metodi
+risultati necessari in fase sviluppo e vari metodi wrapper in AreaLibretto,
+TabellaEsami e UniLib. Aggiunti gli import e le relazioni mancanti. Scritte le
+resp. delle classi DataOraEvento e DataOraEventoConverter e sistemate le resp.
+delle altre classi. Aggiunto diagramma a documento di progetto.
+
+###############################################################################
+
+SESSIONE 22 (14/09)
+SVILUPPO, COLLAUDO, DOCUMENTAZIONE
+INIZIO: 15:56:32
+FINE: 17:32:19
+DURATA: 1:35:47
+DESCRIZIONE: Sviluppati in AreaModifica, Esame e ArchivioEsami i metodi per
+autocompletare le info sull'esame quando l'utente mette il codice esame.
+Aggiunto commento al codice per un trick usato in AreaModifica. Test funzionale
+dell'autocompletamento e test completo seguendo il caso d'uso del documento di
+collaudo. Aggiornato il documento di collaudo con il meccanismo di
+autocompletamento delle info sull'esame. Esportazione db sql e dei progetti
+UniLib e ServerLogger e sistemati in un archivio con i documenti.
+
+###############################################################################
+
+
+TOT: 45:11:28
